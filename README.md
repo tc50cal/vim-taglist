@@ -105,6 +105,7 @@ The extensions to exuberant ctags and the taglist plugin to support additional p
 
 ### ActionScript 
 Add the following lines to the $HOME/.ctags or $HOME/ctags.conf file:
+```
     --langdef=actionscript
     --langmap=actionscript:.as
     --regex-actionscript=/^[ \t]*[(private| public|static) ( \t)]*function[ \t]+([A-Za-z0-9_]+)[ \t]*\(/\1/f, function, functions/
@@ -112,11 +113,13 @@ Add the following lines to the $HOME/.ctags or $HOME/ctags.conf file:
     --regex-actionscript=/^[ \t]*[(private| public|static) ( \t)]*var[ \t]+([A-Za-z0-9_]+)[ \t]*/\1/v,variable, variables/
     --regex-actionscript=/.*\.prototype \.([A-Za-z0-9 ]+)=([ \t]?)function( [ \t]?)*\(/\1/ f,function, functions/
     --regex-actionscript=/^[ \t]*class[ \t]+([A-Za-z0-9_]+)[ \t]*/\1/c,class, classes/
+```
 Add the following lines to the ~/.vimrc or $HOME\_vimrc file:
 " actionscript language
 let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:variable'
 ### Latex 
 Add the following lines to the $HOME/.ctags or $HOME/ctags.conf file:
+```
     --langdef=latex
     --langmap=latex:.tex
     --regex-latex=/^\\part[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/PART \2/s,part/
@@ -135,6 +138,7 @@ Add the following lines to the $HOME/.ctags or $HOME/ctags.conf file:
     --regex-latex=/\\ref[[:space:]]*\{([^}]+)\}/\1/r,ref/
     --regex-latex=/\\pageref[[:space:]]*\{([^}]+)\}/\1/p,pageref/
     --regex-make=/^([^:# \t]+)[ \t]*[:]{1,2}/\1/t,targets/
+```
 Add the following lines to the ~/.vimrc or $HOME\_vimrc file:
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
 let tlist_make_settings  = 'make;m:makros;t:targets'

@@ -16,24 +16,24 @@ For more information about using this plugin, after installing the
 taglist plugin, use the ":help taglist" command.
 
 ## The taglist plugin provides the following features:
-Displays the tags (functions, classes, structures, variables, etc.) defined in a file in a vertically or horizontally split Vim window.
-In GUI Vim, optionally displays the tags in the Tags drop-down menu and in the popup menu.
-Automatically updates the taglist window as you switch between files/buffers. As you open new files, the tags defined in the new files are added to the existing file list and the tags defined in all the files are displayed grouped by the filename.
-When a tag name is selected from the taglist window, positions the cursor at the definition of the tag in the source file.
-Automatically highlights the current tag name.
-Groups the tags by their type and displays them in a foldable tree.
-Can display the prototype and scope of a tag.
-Can optionally display the tag prototype instead of the tag name in the taglist window.
-The tag list can be sorted either by name or by chronological order.
-Supports the following language files:
-Assembly, ASP, Awk, Beta, C, C++, C#, Cobol, Eiffel, Erlang, Fortran, HTML, Java, Javascript, Lisp, Lua, Make, Pascal, Perl, PHP, Python, Rexx, Ruby, Scheme, Shell, Slang, SML, Sql, TCL, Verilog, Vim and Yacc.
-Can be easily extended to support new languages. Support for existing languages can be modified easily.
-Provides functions to display the current tag name in the Vim status line or the window title bar.
-The list of tags and files in the taglist can be saved and restored across Vim sessions.
-Provides commands to get the name and prototype of the current tag.
-Runs in both console/terminal and GUI versions of Vim.
-Works with the winmanager plugin. Using the winmanager plugin, you can use Vim plugins like the file explorer, buffer explorer and the taglist plugin at the same time like an IDE.
-Can be used in both Unix and MS-Windows systems.
+  * Displays the tags (functions, classes, structures, variables, etc.) defined in a file in a vertically or horizontally split Vim window.
+  * In GUI Vim, optionally displays the tags in the Tags drop-down menu and in the popup menu.
+  * Automatically updates the taglist window as you switch between files/buffers. As you open new files, the tags defined in the new files are added to the existing file list and the tags defined in all the files are displayed grouped by the filename.
+  * When a tag name is selected from the taglist window, positions the cursor at the definition of the tag in the source file.
+  * Automatically highlights the current tag name.
+  * Groups the tags by their type and displays them in a foldable tree.
+  * Can display the prototype and scope of a tag.
+  * Can optionally display the tag prototype instead of the tag name in the taglist window.
+  * The tag list can be sorted either by name or by chronological order.
+  * Supports the following language files:
+  * Assembly, ASP, Awk, Beta, C, C++, C#, Cobol, Eiffel, Erlang, Fortran, HTML, Java, Javascript, Lisp, Lua, Make, Pascal, Perl, PHP, Python, Rexx, Ruby, Scheme, Shell, Slang, SML, Sql, TCL, Verilog, Vim and Yacc.
+  * Can be easily extended to support new languages. Support for existing languages can be modified easily.
+  * Provides functions to display the current tag name in the Vim status line or the window title bar.
+  * The list of tags and files in the taglist can be saved and restored across Vim sessions.
+  * Provides commands to get the name and prototype of the current tag.
+  * Runs in both console/terminal and GUI versions of Vim.
+  * Works with the winmanager plugin. Using the winmanager plugin, you can use Vim plugins like the file explorer, buffer explorer and the taglist plugin at the same time like an IDE.
+  * Can be used in both Unix and MS-Windows systems.
 
 ## Installation
 
@@ -68,9 +68,8 @@ You can extend the taglist plugin by setting variables in the .vimrc or _vimrc f
 To modify the support for an already supported language, you have to set the tlist_xxx_settings variable in the ~/.vimrc or $HOME/_vimrc file. Replace xxx with the Vim filetype name for the language file.
 To determine the filetype name used by Vim for a file, use the following command in the buffer containing the file:
 
-    ```vim
     :set filetype
-    ```
+
 For example, to modify the support for the perl language files, you have to set the tlist_perl_settings variable. To modify the support for java files, you have to set the tlist_java_settings variable.
 
 The format of the value set in the tlist_xxx_settings variable is
@@ -85,11 +84,11 @@ The remaining fields follow the format "flag:name". The sub-field 'flag' is the 
 The sub-field 'name' specifies the title text to use for displaying the tags of a particular type. For example, 'name' can be set to 'functions'. This field can be set to any text string name.
 For example, to list only the classes and functions defined in a C++ language file, add the following line to your .vimrc file:
 
-        let tlist_cpp_settings = 'c++;c:class;f:function'
+    let tlist_cpp_settings = 'c++;c:class;f:function'
 In the above setting, 'cpp' is the Vim filetype name and 'c++' is the name used by the exuberant ctags tool. 'c' and 'f' are the flags passed to exuberant ctags to list C++ classes and functions and 'class' is the title used for the class tags and 'function' is the title used for the function tags in the taglist window.
 For example, to display only functions defined in a C file and to use "My Functions" as the title for the function tags, use
 
-        let tlist_c_settings = 'c;f:My Functions'
+    let tlist_c_settings = 'c;f:My Functions'
 When you set the tlist_xxx_settings variable, you will override the default setting used by the taglist plugin for the 'xxx' language. You cannot add to the default options used by the taglist plugin for a particular file type. To add to the options used by the taglist plugin for a language, copy the option values to your .vimrc file.
 Adding support for a new language
 
@@ -98,7 +97,7 @@ To add support for a new language, set the tlist_xxx_settings variable appropria
 
 For example, to extend the taglist plugin to support the latex language, you can use the following line (assuming, you have already extended exuberant ctags to support the latex language):
 
-        let tlist_tex_settings='latex;b:bibitem;c:command;l:label'
+    let tlist_tex_settings='latex;b:bibitem;c:command;l:label'
 With the above line, when you edit files of filetype "tex" in Vim, the taglist plugin will invoke the exuberant ctags tool passing the "latex" filetype and the flags b, c and l to generate the tags. The text heading 'bibitem', 'command' and 'label' will be used in the taglist window for the tags which are generated for the flags b, c and l respectively.
 Language specific extensions
 
@@ -106,36 +105,36 @@ The extensions to exuberant ctags and the taglist plugin to support additional p
 
 ### ActionScript 
 Add the following lines to the $HOME/.ctags or $HOME/ctags.conf file:
---langdef=actionscript
---langmap=actionscript:.as
---regex-actionscript=/^[ \t]*[(private| public|static) ( \t)]*function[ \t]+([A-Za-z0-9_]+)[ \t]*\(/\1/f, function, functions/
---regex-actionscript=/^[ \t]*[(public) ( \t)]*function[ \t]+(set|get) [ \t]+([A-Za-z0-9_]+)[ \t]*\(/\1 \2/p,property, properties/
---regex-actionscript=/^[ \t]*[(private| public|static) ( \t)]*var[ \t]+([A-Za-z0-9_]+)[ \t]*/\1/v,variable, variables/
---regex-actionscript=/.*\.prototype \.([A-Za-z0-9 ]+)=([ \t]?)function( [ \t]?)*\(/\1/ f,function, functions/
---regex-actionscript=/^[ \t]*class[ \t]+([A-Za-z0-9_]+)[ \t]*/\1/c,class, classes/
+    --langdef=actionscript
+    --langmap=actionscript:.as
+    --regex-actionscript=/^[ \t]*[(private| public|static) ( \t)]*function[ \t]+([A-Za-z0-9_]+)[ \t]*\(/\1/f, function, functions/
+    --regex-actionscript=/^[ \t]*[(public) ( \t)]*function[ \t]+(set|get) [ \t]+([A-Za-z0-9_]+)[ \t]*\(/\1 \2/p,property, properties/
+    --regex-actionscript=/^[ \t]*[(private| public|static) ( \t)]*var[ \t]+([A-Za-z0-9_]+)[ \t]*/\1/v,variable, variables/
+    --regex-actionscript=/.*\.prototype \.([A-Za-z0-9 ]+)=([ \t]?)function( [ \t]?)*\(/\1/ f,function, functions/
+    --regex-actionscript=/^[ \t]*class[ \t]+([A-Za-z0-9_]+)[ \t]*/\1/c,class, classes/
 Add the following lines to the ~/.vimrc or $HOME\_vimrc file:
 " actionscript language
 let tlist_actionscript_settings = 'actionscript;c:class;f:method;p:property;v:variable'
 ### Latex 
 Add the following lines to the $HOME/.ctags or $HOME/ctags.conf file:
---langdef=latex
---langmap=latex:.tex
---regex-latex=/^\\part[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/PART \2/s,part/
---regex-latex=/^\\part[[:space:]]*\*[[:space:]]*\{([^}]+)\}/PART \1/s,part/
---regex-latex=/^\\chapter[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/CHAP \2/s,chapter/
---regex-latex=/^\\chapter[[:space:]]*\*[[:space:]]*\{([^}]+)\}/CHAP \1/s,chapter/
---regex-latex=/^\\section[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\. \2/s,section/
---regex-latex=/^\\section[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\. \1/s,section/
---regex-latex=/^\\subsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\. \2/s,subsection/
---regex-latex=/^\\subsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\. \1/s,subsection/
---regex-latex=/^\\subsubsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\.\. \2/s,subsubsection/
---regex-latex=/^\\subsubsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\.\. \1/s,subsubsection/
---regex-latex=/^\\includegraphics[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
---regex-latex=/^\\lstinputlisting[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
---regex-latex=/\\label[[:space:]]*\{([^}]+)\}/\1/l,label/
---regex-latex=/\\ref[[:space:]]*\{([^}]+)\}/\1/r,ref/
---regex-latex=/\\pageref[[:space:]]*\{([^}]+)\}/\1/p,pageref/
---regex-make=/^([^:# \t]+)[ \t]*[:]{1,2}/\1/t,targets/
+    --langdef=latex
+    --langmap=latex:.tex
+    --regex-latex=/^\\part[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/PART \2/s,part/
+    --regex-latex=/^\\part[[:space:]]*\*[[:space:]]*\{([^}]+)\}/PART \1/s,part/
+    --regex-latex=/^\\chapter[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/CHAP \2/s,chapter/
+    --regex-latex=/^\\chapter[[:space:]]*\*[[:space:]]*\{([^}]+)\}/CHAP \1/s,chapter/
+    --regex-latex=/^\\section[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\. \2/s,section/
+    --regex-latex=/^\\section[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\. \1/s,section/
+    --regex-latex=/^\\subsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\. \2/s,subsection/
+    --regex-latex=/^\\subsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\. \1/s,subsection/
+    --regex-latex=/^\\subsubsection[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\.\.\. \2/s,subsubsection/
+    --regex-latex=/^\\subsubsection[[:space:]]*\*[[:space:]]*\{([^}]+)\}/\.\.\. \1/s,subsubsection/
+    --regex-latex=/^\\includegraphics[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+    --regex-latex=/^\\lstinputlisting[[:space:]]*(\[[^]]*\])?[[:space:]]*(\[[^]]*\])?[[:space:]]*\{([^}]+)\}/\3/g,graphic+listing/
+    --regex-latex=/\\label[[:space:]]*\{([^}]+)\}/\1/l,label/
+    --regex-latex=/\\ref[[:space:]]*\{([^}]+)\}/\1/r,ref/
+    --regex-latex=/\\pageref[[:space:]]*\{([^}]+)\}/\1/p,pageref/
+    --regex-make=/^([^:# \t]+)[ \t]*[:]{1,2}/\1/t,targets/
 Add the following lines to the ~/.vimrc or $HOME\_vimrc file:
 let tlist_tex_settings   = 'latex;s:sections;g:graphics;l:labels'
 let tlist_make_settings  = 'make;m:makros;t:targets'

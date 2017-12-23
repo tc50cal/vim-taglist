@@ -38,7 +38,7 @@ taglist plugin, use the ":help taglist" command.
 ## Installation
 
 1. `apt-vim install -y https://github.com/tc50cal/vim-taglist.git`
-2. Change to the $HOME/.vim/doc or $HOME/vimfiles/doc or $VIM/vimfiles/doc 
+2. Change to the $HOME/.vim/bundle/vim-taglist/doc or $HOME/vimfiles/bundle/vim-taglist/doc or $VIM/vimfiles/bundle/vim-taglist/doc 
     directory, start Vim and run the ":helptags ." command to process the 
     taglist help file. Without this step, you cannot jump to the taglist help 
     topics. 
